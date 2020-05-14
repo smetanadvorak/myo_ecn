@@ -27,10 +27,7 @@ def main():
    
    
     # Extract variables from pickled object
-    mdl = model['svm']
-    mu  = model['mu']
-    sigma = model['sigma']
-    svd_approximation_matrix = model['svd_approximation_matrix']
+    mdl = model['mdl']
     feature_extractor = model['feature_extractor']
     gestures = model['gestures']
 
@@ -54,20 +51,13 @@ def main():
             emg = np.array([x[1] for x in emg])
             # Extract features from the emg signal:
             feature_vector = feature_extractor.extract_feature_vector(emg)
-            # Transform the vector the same way the training feature matrix was transformed: 
-            # 1) Center:
-            feature_vector -= mu
-            # 2) Normalize: 
-            feature_vector = np.divide(feature_vector, sigma)
-            # 3) Project using SVD approximation matrix:
-            feature_vector = np.matmul(feature_vector, svd_approximation_matrix)
-            # Pass features to the classifier, make inference:
+            # Use classification model to recognise the gesture:
             inference = mdl.predict(feature_vector)
-            # Implement majority voting here, if needed
+            # Implement majority voting here, if needed:
+            # ...
         
             # Output inference:
             print('\rRecognized gesture: ', gestures[inference[0]], end='')
-        
         
         
 if __name__ == '__main__':

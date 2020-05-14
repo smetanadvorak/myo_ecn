@@ -1,5 +1,6 @@
 import numpy as np
 import numpy.matlib as npm
+from sklearn import svm
 
 class FeatureExtractor():
     def __init__(self, winlen=50, overlap=25):
@@ -50,16 +51,18 @@ class ClassificationModel:
         feature_matrix = self.fit_reduce_dimensionality(feature_matrix, retained_variance)
         
         if classifier is None:
-            classifier = svm.SVC(gamma='auto', C=10)
+            self.classifier = svm.SVC(gamma='auto', C=10)
+        else:
+            self.classifier = classifier
         
-        classifier.fit(self.feature_matrix, labels)
+        self.classifier.fit(feature_matrix, labels)
         print('Classifier trained!')
         
         # Check inference on the training set:
-        labels_res = classifier.predict(feature_matrix_approx)
+        labels_res = self.classifier.predict(feature_matrix)
 
         # Calculate and report the confusion matrix on the training set:
-        conf_mat = np.zeros((max(labels), max(labels)), dtype=np.int)
+        conf_mat = np.zeros((max(labels)+1, max(labels)+1), dtype=np.int)
         for i in range(len(labels)):
             conf_mat[labels[i], labels_res[i]] += 1
         print('Confusion matrix on training set:\n', conf_mat)
