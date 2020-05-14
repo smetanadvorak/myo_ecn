@@ -1,8 +1,9 @@
-# myo_ecn
+# MYO toolbox for Ecole Centrale de Nantes
  
-Installation:
+## Installation
 
-0) Install 'MyoConnect' from https://support.getmyo.com/hc/en-us/articles/360018409792. Conventional 'accept-accept-ok' installation.
+### 1. Install 'MyoConnect' 
+Download MyoConnect here: from https://support.getmyo.com/hc/en-us/articles/360018409792. Conventional 'accept-accept-ok' installation.
 
 1) Install 'Anaconda' for Python 3 from https://www.anaconda.com/.
 
