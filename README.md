@@ -9,11 +9,13 @@ The following dependencies will be installed as you follow the installation inst
 - scikit-learn
 - matplotlib
 
-## General info:
+## General info
 
 These codes demonstrate the usage of __myo-python__ library for establishing connection with MYO armband and collecting data from it. 
 
-Historically, the developers of MYO armband have issued an official C++ API to enable the users to create their own armband-based applications. Not long after that, Niklas Rosenstein have developed a Python interface for this API, using CFFI module and CPython. His implementation can be found here: https://github.com/NiklasRosenstein/myo-python. In this project, we build a bit more infrastructure around __myo-python__ library that should help you develop the code for EMG processing and EMG-based gesture recognition.
+Historically, the developers of MYO armband have issued an official C++ API to enable the users to create their own armband-based applications. Not long after that, Niklas Rosenstein have developed a Python interface for this API, using CFFI module and CPython. His implementation can be found here: https://github.com/NiklasRosenstein/myo-python. 
+
+In this project, we build a more infrastructure around __myo-python__ library that should help you develop the code for EMG processing and EMG-based gesture recognition.
  
 ## Installation
 
@@ -59,7 +61,7 @@ This should be done only once at the beginning of your working session:
   <img width="500" src="docs/ping.png">
 </p>
 
-### Setup the environment and run the code:
+### Setup the environment and run the code
 - Open command line and activate the 'myo' environment:
 ```
 conda activate myo
@@ -79,13 +81,23 @@ If everything is installed correctly, a matplotlib figure should appear with the
 
 ### EMG streaming
 
-Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) demonstrates a way to collect and plot EMG data from the armband in a real-time manner.
+Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) demonstrates a way to collect and plot EMG data from the armband in a real-time manner. Class [MultichannelPlot](/examples/streaming/MultichannelPlot.py) provides a solution for fast plotting of multichannel signals.
 
-Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py), [2\_training.py](/examples/classification/2_training.py) and [3\_inference.py](/examples/classification/3_inference.py) implement a three-step process of EMG data collection, classifier training and testing.
+<p align="center">
+  <img width="500" src="docs/streaming.png">
+</p>
+
 
 ### Gesture classification
 
+Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py), [2\_training.py](/examples/classification/2_training.py) and [3\_inference.py](/examples/classification/3_inference.py) implement a three-step process of EMG data collection, classifier training and testing.
+
 In [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py) may specify the the gestures (variable __gestures__) for which you want to collect the EMG data, as well as how many times to repeat the acquisition (variable __trials\_n__). When you run this script, it guides you through the acquisition by telling which gesture to perform and for which amount of time. The signals are automatically stored in the folder [__data__](/examples/classification/data/). 
+
+
+<p align="center">
+  <img width="500" src="docs/training.png">
+</p>
 
 __Notes:__ 
 - If the script was aborted during data acquisition, on the next run it will continue from where it stooped.
