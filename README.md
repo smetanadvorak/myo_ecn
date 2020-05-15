@@ -9,6 +9,11 @@ The following dependencies will be installed as you follow the installation inst
 - scikit-learn
 - matplotlib
 
+## General info:
+
+These codes demonstrate the usage of __myo-python__ library for establishing connection with MYO armband and collecting data from it. 
+
+Historically, the developers of MYO armband have issued an official C++ API to enable the users to create their own armband-based applications. Not long after that, Niklas Rosenstein have developed a Python interface for this API, using CFFI module and CPython. His implementation can be found here: https://github.com/NiklasRosenstein/myo-python. In this project, we build a bit more infrastructure around __myo-python__ library that should help you develop the code for EMG processing and EMG-based gesture recognition.
  
 ## Installation
 
@@ -43,12 +48,12 @@ pip install git+https://github.com/smetanadvorak/myo-python
 ```
 
 ## How to run the code
-First, part with MyoConnect, this should be done once before starting working:
-- Insert the Bluetooth dongle in your USB port.
+Set up MyoConnect, this should be done only once at the beginning of your working session:
+- Insert MYO' Bluetooth dongle in your USB port.
 - Run MyoConnect and approach the dongle with your armband. It should automatically get paired with MyoConnect.
-- Press 'Ping' to make sure that it not connected to another nearby armband. Your armband should vibrate in response to the ping.
+- In MyoConnect, press 'Ping' to make sure that it is not connected to some other armband nearby. Your armband should vibrate in response to the ping.
 
-Second, setup the environment and run the code:
+Setup the 'myo' environment and run the code:
 - Open command line and activate the 'myo' environment:
 ```
 conda activate myo
@@ -58,23 +63,37 @@ conda activate myo
 ```
 python emg_streaming.py
 ```
-If everything is installed correctly, a matplotlib figure should appear with the EMG signals being traced in real time. This and other examples can be stopped by either pressing __ctrl-c__  or quicky tapping your middle and thumb fingers against each other twice.
+If everything is installed correctly, a matplotlib figure should appear with the EMG signals being traced in real time. This and other examples can be stopped by either pressing __ctrl-c__  or quicky tapping your middle and thumb fingers against each other twice (see image below): 
 	
+<p align="center">
+  <img width="500" src="docs/Alpes_ClassDiagramSmall.png">
+</p>
 
-General info:
+## Working with the examples
 
-These codes demonstrate the usage of 'myo-python' library in order to establish the connection with a MYO armband and collect data from it. 
-Historically, the developers of MYO armband have issued an official C++ API to enable the users to create their own armband-based applications. Not long after that, programmer Niklas Rosenstein have developed a Python interface for this API, using CFFI module and CPython. His interface can be found here: https://github.com/NiklasRosenstein/myo-python. In this case, it is installed in step 3) of the afore-presented instructions.
-Script 'emg_streaming.py' demonstrates a way to collect and plot EMG data from an armband in a real-time manner. Simply run it to see the results. This code is commented in a detailed way to help understand its' logic.
-Scripts '1_dataset_acquisition.py', '2_training.py' and '3_inference.py' implement a three-step process of EMG data collection, classifier training and testing. Run them one after another.
+### EMG streaming
 
-All afore-mentioned scripts share a number of classes declared in files '_EmgClasses.py' and '_MyoListeners.py'. 
-'_MyoListeners.py' contains classes 'EmgBuffer' and 'EmgCollector' that realize basic modes of signal acquisition: real-time buffering (see 'emg_streaming.py', '3_inference.py') and single batch (see '1_dataset_acquisition.py'). 
-'_EmgClasses.py' contains classes 'MultichannelPlot' and 'FeatureExtractor'. The first helps to plot general multichannel data in an efficient way, its example can be seen in 'emg_streaming.py'. The second encapsulates the feature extraction functions and automates their application to the EMG signals (see '2_training.py'). 
+Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) demonstrates a way to collect and plot EMG data from the armband in a real-time manner.
 
+Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py), [2\_training.py](/examples/classification/2_training.py) and [3\_inference.py](/examples/classification/3_inference.py) implement a three-step process of EMG data collection, classifier training and testing.
 
-What's next:
+### Gesture classification
 
-Presented codes are barebones for classic machine learning and signal processing problems. 
-Script 'emg_streaming.py' can be further modified to implement real-time signal processing, such as filtering or feature extraction. For that, one can add processing in the while loop in 'emg_streaming.py' or redefine/inherit from class EmgBuffer.  
-Script '2_training.py' can be modified to implement a different classifier. Modify class 'FeatureExtraction' if other types of features are needed. 
+In [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py) may specify the the gestures (variable __gestures__) for which you want to collect the EMG data, as well as how many times to repeat the acquisition (variable __trials\_n__). When you run this script, it guides you through the acquisition by telling which gesture to perform and for which amount of time. The signals are automatically stored in the folder [__data__](/examples/classification/data/). 
+__Notes:__ 
+- If the script was aborted during data acquisition, on the next run it will continue from where it stooped.
+- Empty [__data__](/examples/classification/data/) folder if you want to acquire a new dataset.
+- You may expand an existing data set by augmenting __gestures__ and __trials_n__ variables.
+
+In script [2\_training.py](/examples/classification/2_training.py) and utility file [EMG_classification.py](/examples/classification/EMG_classification.py) you may define the parameters of the feature extractor and of the classifier. Default feature is smoothed absolute signal (aka mean absolute value or MAV), default classifier is SVM. Run this code as is to see the results achieved by default setup. The resulting classification model is saved in folder [__models__](/examples/classification/data/). 
+
+Script [3\_inference.py](/examples/classification/3_inference.py) takes the trained classification model and applies in real time to a newly acquired EMG data. Perform gestures in the same way you were performing them during training set acquisition (arm pose matters!). The script will output the label of the gesture in command line. 
+
+### myo-python Examples
+Folder [myo_python_examples](/examples/myo_python_examples/) contains the original examples distributed with __myo-python__. They may give you more insights on how to use this library. 
+
+## What's next
+
+Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) can be further modified to implement real-time signal processing, such as filtering or feature extraction. For that, one can add processing in the __while__ loop in 'emg_streaming.py' or redefine/inherit from class EmgBuffer.
+
+Classes __FeatureExtractor__ and __Classification_model__ in [EMG_classification.py](/examples/classification/EMG_classification.py) can be modified to implement a different classifier (ANN, for example). Modify class 'FeatureExtraction' to try other types of features. 
