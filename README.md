@@ -9,7 +9,7 @@ The following dependencies will be installed as you follow the installation inst
 - scikit-learn
 - matplotlib
 
-## General info:
+## General info
 
 These codes demonstrate the usage of __myo-python__ library for establishing connection with MYO armband and collecting data from it. 
 
@@ -61,7 +61,7 @@ This should be done only once at the beginning of your working session:
   <img width="500" src="docs/ping.png">
 </p>
 
-### Setup the environment and run the code:
+### Setup the environment and run the code
 - Open command line and activate the 'myo' environment:
 ```
 conda activate myo
