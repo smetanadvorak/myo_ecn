@@ -44,7 +44,6 @@ dependencies:
   - zlib=1.2.11=h1de35cc_3
   - pip:
     - cffi==1.14.0
-    - myo-python==1.0.4
     - pycparser==2.20
     - pyserial==3.4
 
