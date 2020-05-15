@@ -48,6 +48,11 @@ Install it from from my fork on Github. To do so, in command line, with 'myo' en
 ```
 pip install git+https://github.com/smetanadvorak/myo-python
 ```
+### 4. Setup the myo_ecn package
+In the same command window, from this project's folder, run:
+```
+pip install -e .
+```
 
 ## How to run the code
 ### 1. Set up MyoConnect
