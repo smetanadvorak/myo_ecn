@@ -131,3 +131,11 @@ Folder [myo_python_examples](/examples/myo_python_examples/) contains the origin
 Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) can be further modified to implement real-time signal processing, such as filtering or feature extraction. For that, one can add processing in the __while__ loop in 'emg_streaming.py' or redefine/inherit from class EmgBuffer.
 
 Classes __FeatureExtractor__ and __Classification_model__ in [EMG_classification.py](/examples/classification/EMG_classification.py) can be modified to implement a different classifier (ANN, for example). Modify class 'FeatureExtraction' to try other types of features. 
+
+__Important note__: when writing your own code and adding the line that initialises the myo-python:
+```python
+myo.init(sdk_path='../../myo_sdk') # Compile Python binding to Myo's API
+```
+assign to __sdk\_path__ the relative location of __myo\_sdk__ folder that is located in this project. As you can see, all examples, being two directories below the root, refer to it as __'../../myo_sdk'__.
+
+
