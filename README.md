@@ -20,7 +20,7 @@ In this project, we build an infrastructure around __myo-python__ library that w
 ## Installation
 
 ### 0. Install Anaconda
-If you are not familiar with Python and virtual environments, I suggest using Anaconda. Download a Python 3.7 Anaconda from [the official site](https://www.anaconda.com/products/individual) and install it. Make sure to accept Anaconda as your default Python during installation. 
+If you are not familiar with Python and virtual environments, I suggest using Anaconda. Download a Python 3.7 Anaconda from [the official site](https://www.anaconda.com/products/individual) and install it. Durint installation, make sure to accept to add Anaconda to your PATH and set it as your default Python. 
 
 If you are familiar with virtual environments, Anaconda is not necessary. You only need to install the dependencies. Precise versions of the required packages are listed in [this file](/anaconda/myo_environment.yml).
 
