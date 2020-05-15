@@ -89,8 +89,14 @@ Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) demonstrates a 
 
 
 ### Gesture classification
+Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py), [2\_training.py](/examples/classification/2_training.py) and [3\_inference.py](/examples/classification/3_inference.py) implement a three-step process of EMG data collection, classifier training and testing. A flowchart of the whole process is provided below:
 
-Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py), [2\_training.py](/examples/classification/2_training.py) and [3\_inference.py](/examples/classification/3_inference.py) implement a three-step process of EMG data collection, classifier training and testing.
+<p align="center">
+  <img width="1000" src="docs/gesture_recognition_workflow.png">
+</p>
+
+
+#### Dataset acquisition
 
 In [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py) may specify the the gestures (variable __gestures__) for which you want to collect the EMG data, as well as how many times to repeat the acquisition (variable __trials\_n__). When you run this script, it guides you through the acquisition by telling which gesture to perform and for which amount of time. The signals are automatically stored in the folder [__data__](/examples/classification/data/). 
 
@@ -99,12 +105,16 @@ In [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py
   <img width="500" src="docs/training.png">
 </p>
 
-__Notes:__ 
+Notes:
 - If the script was aborted during data acquisition, on the next run it will continue from where it stooped.
 - Empty [__data__](/examples/classification/data/) folder if you want to acquire a new dataset.
 - You may expand an existing data set by augmenting __gestures__ and __trials_n__ variables.
 
+#### Classifier training
+
 In script [2\_training.py](/examples/classification/2_training.py) and utility file [EMG_classification.py](/examples/classification/EMG_classification.py) you may define the parameters of the feature extractor and of the classifier. Default feature is smoothed absolute signal (aka mean absolute value or MAV), default classifier is SVM. Run this code as is to see the results achieved by default setup. The resulting classification model is saved in folder [__models__](/examples/classification/data/). 
+
+#### Inference
 
 Script [3\_inference.py](/examples/classification/3_inference.py) takes the trained classification model and applies in real time to a newly acquired EMG data. Perform gestures in the same way you were performing them during training set acquisition (arm pose matters!). The script will output the label of the gesture in command line. 
 
