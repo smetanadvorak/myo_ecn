@@ -48,12 +48,18 @@ pip install git+https://github.com/smetanadvorak/myo-python
 ```
 
 ## How to run the code
-Set up MyoConnect, this should be done only once at the beginning of your working session:
+### Set up MyoConnect
+This should be done only once at the beginning of your working session:
+
 - Insert MYO' Bluetooth dongle in your USB port.
 - Run MyoConnect and approach the dongle with your armband. It should automatically get paired with MyoConnect.
 - In MyoConnect, press 'Ping' to make sure that it is not connected to some other armband nearby. Your armband should vibrate in response to the ping.
 
-Setup the 'myo' environment and run the code:
+<p align="center">
+  <img width="500" src="docs/ping.png">
+</p>
+
+### Setup the environment and run the code:
 - Open command line and activate the 'myo' environment:
 ```
 conda activate myo
@@ -66,7 +72,7 @@ python emg_streaming.py
 If everything is installed correctly, a matplotlib figure should appear with the EMG signals being traced in real time. This and other examples can be stopped by either pressing __ctrl-c__  or quicky tapping your middle and thumb fingers against each other twice (see image below): 
 	
 <p align="center">
-  <img width="500" src="docs/double_tap.png">
+  <img width="150" src="docs/double_tap.png">
 </p>
 
 ## Working with the examples
