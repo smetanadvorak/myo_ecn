@@ -1,21 +1,21 @@
 # MYO toolbox for Ecole Centrale de Nantes
  
 ## Requirements 
-- Python 3
+- _Python 3_
 
-The following dependencies will be installed as you follow the installation instructions given below: 
-- myo-python
-- numpy
-- scikit-learn
-- matplotlib
+These dependencies will be installed as you follow the installation instructions given below: 
+- _myo-python_
+- _numpy_
+- _scikit-learn_
+- _matplotlib_
 
-## General info
+## Description
 
-These codes demonstrate the usage of __myo-python__ library for establishing connection with MYO armband and collecting data from it. 
+This project contains Python scripts and classes that help to establish connection with Thalmic MYO armband, collect and plot EMG data, and establish a gesture recognition procedure. 
 
-Historically, the developers of MYO armband have issued an official C++ API to enable the users to create their own armband-based applications. Not long after that, Niklas Rosenstein have developed a Python interface for this API, using CFFI module and CPython. His implementation can be found here: https://github.com/NiklasRosenstein/myo-python. 
+The developers of Thalmic MYO armband have developed a C++ API to enable the users create their own armband-based applications. Not long after that, Niklas Rosenstein have developed __myo-python__, a Python interface for this API, using CFFI module and CPython. His implementation can be found here: https://github.com/NiklasRosenstein/myo-python. 
 
-In this project, we build a more infrastructure around __myo-python__ library that should help you develop the code for EMG processing and EMG-based gesture recognition.
+In this project, we build an infrastructure around __myo-python__ library that will help you develop EMG processing and EMG-based gesture recognition.
  
 ## Installation
 
