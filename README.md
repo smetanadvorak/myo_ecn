@@ -30,9 +30,11 @@ Download MyoConnect from Thalmic's [official web-site](https://support.getmyo.co
 
 ### 2. Install Python environment with dependencies
 
-In command line, navigate to the folder with this package. Then run the following command and accept the changes:
+In command line, navigate to the folder with this package. Then run the following commands and accept the changes:
 ```
-conda env create -f ./anaconda/myo_environment.yml
+cd anaconda
+conda env create -f myo_environment.yml
+cd ..
 ```
 This will install on your comnputer a copy of Python enironment in which this project was developed and tested. 
 
@@ -46,7 +48,7 @@ __Note:__ please remember that any time you want to run this project from a new 
 
 Install it from from my fork on Github. To do so, in command line, with 'myo' environment activated, run:
 ```
-pip install git+https://github.com/smetanadvorak/myo-python
+python -m pip install https://github.com/smetanadvorak/myo-python/tarball/master
 ```
 ### 4. Setup the myo_ecn package
 In the same command window, from this project's folder, run:
