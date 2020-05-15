@@ -17,7 +17,7 @@ Historically, the developers of MYO armband have issued an official C++ API to e
  
 ## Installation
 
-### 1. Install 'MyoConnect' 
+### 1. Install MyoConnect
 
 Download MyoConnect from Thalmic's [official web-site](https://support.getmyo.com/hc/en-us/articles/360018409792). Available for Windows and MacOS, a simple installation.
 
