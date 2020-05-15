@@ -3,4 +3,6 @@ myo_sdk/*
 myo_ecn.egg-info/*
 examples/classification/data/*
 !examples/classification/data/.gitkeep
+examples/classification/models/*
+!examples/classification/models/.gitkeep
 
