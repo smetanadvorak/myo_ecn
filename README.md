@@ -17,32 +17,32 @@ Historically, the developers of MYO armband have issued an official C++ API to e
  
 ## Installation
 
+### 0. Install Anaconda
+If you are not familiar with Python and virtual environments, I suggest using Anaconda. Download a Python 3.7 Anaconda from [the official site](https://www.anaconda.com/products/individual) and install it. Make sure to accept Anaconda as your default Python during installation. 
+
+If you are familiar with virtual environments, Anaconda is not necessary. You only need to install the dependencies. Precise versions of the required packages are listed in [this file](/anaconda/myo_environment.yml).
+
 ### 1. Install MyoConnect
 
 Download MyoConnect from Thalmic's [official web-site](https://support.getmyo.com/hc/en-us/articles/360018409792). Available for Windows and MacOS, a simple installation.
 
-### 2a. New python environment (With Anaconda)
+### 2. Create dedicated Python environment
 
-In command line, navigate to the folder with this package. Then run the following command:
+In command line, navigate to the folder with this package. Then run the following command and accept the changes:
 ```
 conda env create -f ./anaconda/myo_environment.yml
 ```
+This will install on your comnputer a copy of Python enironment in which this project was developed and tested. 
 
-Now activate the environment that we have just created (its name is 'myo'):
+Now activate the environment that we have just created (its name is __'myo'__):
 ```
 conda activate myo
 ```
-__Note:__ please remember that any time you want to run this code from a new command/terminal window, you need to activate the 'myo' environment again.
-
-### 2b. New python environment (Without Anaconda)
-
-...
-
-__Note:__ please remember that any time you want to run this code from a new command/terminal window, you need to activate the 'myo' environment again.
+__Note:__ please remember that any time you want to run this project from a new command/terminal window, you need to activate the 'myo' environment again.
 
 ### 3. Install 'myo-python' package
 
-Install it from from my fork on Github. In command line, with 'myo' environment activated, run:
+Install it from from my fork on Github. To do so, in command line, with 'myo' environment activated, run:
 ```
 pip install git+https://github.com/smetanadvorak/myo-python
 ```
