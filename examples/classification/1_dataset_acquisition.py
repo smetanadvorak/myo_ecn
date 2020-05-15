@@ -22,7 +22,7 @@ def make_single_acquisition(trial_len, message_to_the_user = False):
     with hub.run_in_background(listener.on_event):
         while hub.running:
             time.sleep(0.250)
-            print('\rRecording ... %d percent done' % (100 * listener.emg_data.shape[0]/trial_len/EMG_SAMPLING_RATE), end='')  
+            print('\rRecording ... %d percent done.' % (100 * listener.emg_data.shape[0]/trial_len/EMG_SAMPLING_RATE), end='')  
         print()
     return listener.emg_data
 
@@ -49,7 +49,7 @@ def main():
     trial_len = 5 # Duration of each trial in seconds
 
 
-    print('Starting the EMG data collection ...')
+    print('Starting the EMG data collection ... Press ctrl-c to stop.')
     # Get to the dataset folder, if doesn't exist, create it:
     if not os.path.exists(data_folder): os.mkdir(data_folder)
     os.chdir(data_folder)

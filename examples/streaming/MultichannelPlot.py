@@ -27,4 +27,4 @@ class MultichannelPlot(object):
                 data = data[-self.xlen:]
             g.set_ydata(data)
         plt.draw()
-        plt.pause(0.0001)
+        plt.pause(0.040)

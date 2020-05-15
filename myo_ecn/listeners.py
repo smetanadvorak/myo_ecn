@@ -21,7 +21,7 @@ class Buffer(myo.DeviceListener):
     # the armband is associated with the Hub object (basically, once per Hub's lifetime)
     def on_connected(self, event):
         event.device.stream_emg(True)
-        print('Connected to MYO, streaming the EMG... Double tap or ctrl-c to stop.')
+        print('Connected to MYO, hub is running...')
 
     # This function is called automatically by MYO API whenever
     # new EMG data has been received from the armband
@@ -29,10 +29,10 @@ class Buffer(myo.DeviceListener):
         with self.lock:
             self.emg_data_queue.append((event.timestamp, event.emg))
     
-    def on_pose(self, event):
-        if event.pose == myo.Pose.double_tap:
-            print('Double tap detected, shutting down.')
-            return False
+#     def on_pose(self, event):
+#         if event.pose == myo.Pose.double_tap:
+#             print('Double tap detected, shutting down.')
+#             return False
             
     
     

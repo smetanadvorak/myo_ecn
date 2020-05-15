@@ -5,8 +5,11 @@ dependencies:
   - python=3.8.2
   - scikit-learn
   - scipy
+  - pip
   - pip:
+    - keyboard
     - cffi==1.14.0
     - pycparser==2.20
     - pyserial==3.4
+    - https://github.com/smetanadvorak/myo-python/tarball/master
 

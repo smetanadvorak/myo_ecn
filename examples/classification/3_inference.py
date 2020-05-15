@@ -38,7 +38,7 @@ def main():
 
     # Set up inference
     with hub.run_in_background(emg_buffer.on_event):
-        print('You may start performing gestures')
+        print('You may start performing gestures. Press ctrl-c to stop.')
         while hub.running:
             time.sleep(0.050)
             # Skip the rest until enough data for feature extraction is acquired
