@@ -1,3 +1,6 @@
 myo_sdk/*
 .DS_Store
 myo_ecn.egg-info/*
+examples/classification/data/*
+!examples/classification/data/.gitkeep
+
