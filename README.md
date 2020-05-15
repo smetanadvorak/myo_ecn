@@ -80,6 +80,7 @@ Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisiti
 ### Gesture classification
 
 In [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py) may specify the the gestures (variable __gestures__) for which you want to collect the EMG data, as well as how many times to repeat the acquisition (variable __trials\_n__). When you run this script, it guides you through the acquisition by telling which gesture to perform and for which amount of time. The signals are automatically stored in the folder [__data__](/examples/classification/data/). 
+
 __Notes:__ 
 - If the script was aborted during data acquisition, on the next run it will continue from where it stooped.
 - Empty [__data__](/examples/classification/data/) folder if you want to acquire a new dataset.
