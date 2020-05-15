@@ -66,7 +66,7 @@ python emg_streaming.py
 If everything is installed correctly, a matplotlib figure should appear with the EMG signals being traced in real time. This and other examples can be stopped by either pressing __ctrl-c__  or quicky tapping your middle and thumb fingers against each other twice (see image below): 
 	
 <p align="center">
-  <img width="500" src="docs/Alpes_ClassDiagramSmall.png">
+  <img width="500" src="docs/double_tap.png">
 </p>
 
 ## Working with the examples
