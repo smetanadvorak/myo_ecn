@@ -26,7 +26,7 @@ If you are familiar with virtual environments, Anaconda is not necessary. You on
 
 Download MyoConnect from Thalmic's [official web-site](https://support.getmyo.com/hc/en-us/articles/360018409792). Available for Windows and MacOS, a simple installation.
 
-### 2. Create dedicated Python environment
+### 2. Install Python environment with dependencies
 
 In command line, navigate to the folder with this package. Then run the following command and accept the changes:
 ```
