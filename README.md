@@ -121,7 +121,7 @@ In script [2\_training.py](/examples/classification/2_training.py) and utility f
 
 Script [3\_inference.py](/examples/classification/3_inference.py) takes the trained classification model and applies in real time to a newly acquired EMG data. Perform gestures in the same way you were performing them during training set acquisition (arm pose matters!). The script will output the label of the gesture in command line. 
 
-### 3 myo-python Examples
+### 3. _myo-python_ Examples
 Folder [myo_python_examples](/examples/myo_python_examples/) contains the original examples distributed with __myo-python__. They may give you more insights on how to use this library. 
 
 ## What's next
