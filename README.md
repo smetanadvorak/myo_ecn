@@ -1,9 +1,8 @@
 # MYO toolbox for Ecole Centrale de Nantes
  
 ## Requirements 
+Missing requirements will be installed as you follow the instructions given below. 
 - _Python 3_
-
-These dependencies will be installed as you follow the installation instructions given below: 
 - _myo-python_
 - _numpy_
 - _scikit-learn_
@@ -134,6 +133,6 @@ __Important note__: when writing your own code and adding the line that initiali
 ```python
 myo.init(sdk_path='../../myo_sdk') # Compile Python binding to Myo's API
 ```
-assign to __sdk\_path__ the relative location of __myo\_sdk__ folder that is located in this project. As you can see, all examples, being two directories below the root, refer to it as __'../../myo_sdk'__.
+assign to __sdk\_path__ the relative location of __myo\_sdk__ folder which is in the root of this project. As you can see, all examples, being two directories below, refer to it as __'../../myo_sdk'__.
 
 
