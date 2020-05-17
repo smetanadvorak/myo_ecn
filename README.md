@@ -13,9 +13,9 @@ These dependencies will be installed as you follow the installation instructions
 
 ## Description
 
-This project contains Python scripts and classes that help to establish connection with Thalmic MYO armband, collect and plot EMG data, and establish a gesture recognition procedure. 
+This project contains Python scripts and classes that help to establish connection with Thalmic MYO armband, collect and plot EMG data, and implement a gesture recognition procedure. 
 
-The developers of Thalmic MYO armband have developed a C++ API to enable the users create their own armband-based applications. Not long after that, Niklas Rosenstein have developed __myo-python__, a Python interface for this API, using CFFI module and CPython. His implementation can be found here: https://github.com/NiklasRosenstein/myo-python. 
+The developers of __Thalmic MYO__ have issued a C++ API that enables the users to create their own applications for the armband. After that, Niklas Rosenstein have developed __myo-python__, a Python interface for this API, using CFFI module and CPython. His implementation can be found here: https://github.com/NiklasRosenstein/myo-python. 
 
 In this project, we build an infrastructure around __myo-python__ library that will help you develop EMG processing and EMG-based gesture recognition.
  
@@ -24,7 +24,7 @@ In this project, we build an infrastructure around __myo-python__ library that w
 ### 0. Install Anaconda
 If you are not familiar with Python and virtual environments, I suggest using Anaconda. Download a Python 3.7 Anaconda from [the official site](https://www.anaconda.com/products/individual) and install it. Use default installation options.
 
-If you are familiar with virtual environments, Anaconda is not necessary and you can proceed to the next steps.
+If you are familiar with virtual environments, create a new one and proceed to step __3__. 
 
 ### 1. Install MyoConnect
 
@@ -44,7 +44,7 @@ __Note:__ please remember that any time you want to run this project from a new 
 
 ### 3. Install _myo-python_ package
 
-Install it from from my fork on Github. To do so, in command line, with 'myo' environment activated, run:
+Install it from from our fork on Github. To do so, in command line, with 'myo' environment activated, run:
 ```
 pip install https://github.com/smetanadvorak/myo-python/tarball/master
 ```
@@ -68,7 +68,7 @@ This should be done only once at the beginning of your working session:
 </p>
 
 ### 2. Setup the environment and run the code
-- Open command line and activate the 'myo' environment:
+- Open Anaconda Prompt (Windows) or Terminal (MacOS) and activate the 'myo' environment:
 ```
 conda activate myo
 ```
