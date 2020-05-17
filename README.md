@@ -48,7 +48,7 @@ Install it from from our fork on Github. To do so, in command line, with 'myo' e
 pip install https://github.com/smetanadvorak/myo-python/tarball/master
 ```
 ### 4. Setup the _myo-ecn_ package
-Download this project, put it in an appropriate directory on your disk. 
+[Download](https://github.com/smetanadvorak/myo_ecn/tarball/master) this project and put it in an appropriate directory on your disk. 
 In command window, navigate to this project's folder and run:
 ```
 pip install -e .
