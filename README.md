@@ -29,6 +29,8 @@ If you are familiar with virtual environments, create a new one and proceed to s
 
 Download MyoConnect from Thalmic's [official web-site](https://support.getmyo.com/hc/en-us/articles/360018409792). Available for Windows and MacOS, a simple installation.
 
+To set up MyoConnect for work, run it, then right-click on its icon in task bar, select __Preferences__, and uncheck all options in all tabs. Then, right-click on icon again, select __Application Manager__ and uncheck all options here too. 
+
 ### 2. Create a new __python 3.8__ virtual environment (explained for Anaconda):
 
 On Windows, open __anaconda prompt__. On MacOS, run __Terminal__. Run the following commands and accept the changes:
@@ -58,8 +60,9 @@ pip install -e .
 ### 1. Set up MyoConnect
 This should be done only once at the beginning of your working session:
 
-- Insert MYO' Bluetooth dongle in your USB port.
-- Run MyoConnect and approach the dongle with your armband. It should automatically get paired with MyoConnect.
+- Insert MYO's Bluetooth dongle in your USB port.
+- Run MyoConnect, right-click on its icon in task bar, select __Armband Manager ...__.
+- Approach the dongle with your armband. It should automatically get paired with MyoConnect.
 - In MyoConnect, press 'Ping' to make sure that it is not connected to some other armband nearby. Your armband should vibrate in response to the ping.
 
 <p align="center">
