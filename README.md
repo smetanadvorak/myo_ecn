@@ -33,7 +33,7 @@ Download MyoConnect from Thalmic's [official web-site](https://support.getmyo.co
 
 On Windows, open __anaconda prompt__. On MacOS, run __Terminal__. Run the following commands and accept the changes:
 ```
-conda env create -n myo python=3.8 
+conda create --name myo python=3.8 pip
 ```
 Now activate the environment that we have just created (its name is __'myo'__):
 ```
