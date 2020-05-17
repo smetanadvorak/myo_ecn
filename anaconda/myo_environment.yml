@@ -12,4 +12,5 @@ dependencies:
     - pycparser==2.20
     - pyserial==3.4
     - https://github.com/smetanadvorak/myo-python/tarball/master
+    - https://github.com/smetanadvorak/myo_ecn/tarball/master
 

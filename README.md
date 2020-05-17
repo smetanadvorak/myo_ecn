@@ -7,7 +7,9 @@ These dependencies will be installed as you follow the installation instructions
 - _myo-python_
 - _numpy_
 - _scikit-learn_
+- _scipy_
 - _matplotlib_
+- _keyboard_
 
 ## Description
 
@@ -20,38 +22,35 @@ In this project, we build an infrastructure around __myo-python__ library that w
 ## Installation
 
 ### 0. Install Anaconda
-If you are not familiar with Python and virtual environments, I suggest using Anaconda. Download a Python 3.7 Anaconda from [the official site](https://www.anaconda.com/products/individual) and install it. Durint installation, make sure to accept to add Anaconda to your PATH and set it as your default Python. 
+If you are not familiar with Python and virtual environments, I suggest using Anaconda. Download a Python 3.7 Anaconda from [the official site](https://www.anaconda.com/products/individual) and install it. Use default installation options.
 
-If you are familiar with virtual environments, Anaconda is not necessary. You only need to install the dependencies. Precise versions of the required packages are listed in [this file](/anaconda/myo_environment.yml).
+If you are familiar with virtual environments, Anaconda is not necessary and you can proceed to the next steps.
 
 ### 1. Install MyoConnect
 
 Download MyoConnect from Thalmic's [official web-site](https://support.getmyo.com/hc/en-us/articles/360018409792). Available for Windows and MacOS, a simple installation.
 
-### 2. Install Python environment with dependencies
+### 2. Create a new __python 3.8__ virtual environment (explained for Anaconda):
 
-In command line, navigate to the folder with this package. Then run the following commands and accept the changes:
+On Windows, open __anaconda prompt__. On MacOS, run __Terminal__. Run the following commands and accept the changes:
 ```
-cd anaconda
-conda env create -f myo_environment.yml
-cd ..
+conda env create -n myo python=3.8 
 ```
-This will install on your comnputer a copy of Python enironment in which this project was developed and tested. 
-
 Now activate the environment that we have just created (its name is __'myo'__):
 ```
 conda activate myo
 ```
-__Note:__ please remember that any time you want to run this project from a new command/terminal window, you need to activate the 'myo' environment again.
+__Note:__ please remember that any time you want to run this project from a new command/terminal window, you need to activate this environment again.
 
-### 3. Install 'myo-python' package
+### 3. Install _myo-python_ package
 
 Install it from from my fork on Github. To do so, in command line, with 'myo' environment activated, run:
 ```
-python -m pip install https://github.com/smetanadvorak/myo-python/tarball/master
+pip install https://github.com/smetanadvorak/myo-python/tarball/master
 ```
-### 4. Setup the myo_ecn package
-In the same command window, from this project's folder, run:
+### 4. Setup the _myo-ecn_ package
+Download this project, put it in an appropriate directory on your disk. 
+In command window, navigate to this project's folder and run:
 ```
 pip install -e .
 ```
@@ -76,13 +75,10 @@ conda activate myo
 	
 - Navigate to the folder with this package, then to __./examples/streaming__ and run a test script:
 ```
-python emg_streaming.py
+python streaming.py
 ```
-If everything is installed correctly, a matplotlib figure should appear with the EMG signals being traced in real time. This and other examples can be stopped by either pressing __ctrl-c__  or quicky tapping your middle and thumb fingers against each other twice (see image below): 
-	
-<p align="center">
-  <img width="150" src="docs/double_tap.png">
-</p>
+If everything is installed correctly, a matplotlib figure should appear with the EMG signals being traced in real time. 
+This and other examples can be stopped by either pressing __ctrl-c__ (MacOS) or __shift-c__(Windows).
 
 ## Working with the examples
 
