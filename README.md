@@ -83,14 +83,21 @@ This and other examples can be stopped by either pressing __ctrl-c__ (MacOS) or 
 
 ### 1. EMG streaming
 
-Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) demonstrates a way to collect and plot EMG data from the armband in a real-time manner. Class [MultichannelPlot](/examples/streaming/MultichannelPlot.py) provides a solution for fast plotting of multichannel signals.
+Script [emg\_streaming.py](/examples/streaming/streaming.py) demonstrates a method to collect and plot EMG data from the armband in a real-time manner. Class [MultichannelPlot](/examples/streaming/MultichannelPlot.py) provides a solution for fast plotting of multichannel signals.
 
 <p align="center">
   <img width="500" src="docs/streaming.png">
 </p>
 
+### 2. Acquisition to file
+Script [emg\_streaming.py](/examples/acquisition/acquisition.py) demonstrates a method to collect a specified amount of EMG data from the armband and save it to a file. 
+It uses Class [Collector](/myo_ecn/listeners.py). The following command will acquire the signal for 10 seconds and save it to file __filename.csv__:
+```python
+python acquistion.py 10 filename
+```
 
-### 2. Gesture classification
+
+### 3. Gesture classification
 Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py), [2\_training.py](/examples/classification/2_training.py) and [3\_inference.py](/examples/classification/3_inference.py) implement a three-step process of EMG data collection, classifier training and testing. A flowchart of the whole process is provided below:
 
 <p align="center">
@@ -98,7 +105,7 @@ Scripts [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisiti
 </p>
 
 
-#### 2.a Dataset acquisition
+#### 3.a Dataset acquisition
 
 In [1\_dataset_acquisition.py](/examples/classification/1_dataset_acquisition.py) may specify the the gestures (variable __gestures__) for which you want to collect the EMG data, as well as how many times to repeat the acquisition (variable __trials\_n__). When you run this script, it guides you through the acquisition by telling which gesture to perform and for which amount of time. The signals are automatically stored in the folder [__data__](/examples/classification/data/). 
 
@@ -112,20 +119,20 @@ Notes:
 - Empty [__data__](/examples/classification/data/) folder if you want to acquire a new dataset.
 - You may expand an existing data set by augmenting __gestures__ and __trials_n__ variables.
 
-#### 2.b Classifier training
+#### 3.b Classifier training
 
 In script [2\_training.py](/examples/classification/2_training.py) and utility file [EMG_classification.py](/examples/classification/EMG_classification.py) you may define the parameters of the feature extractor and of the classifier. Default feature is smoothed absolute signal (aka mean absolute value or MAV), default classifier is SVM. Run this code as is to see the results achieved by default setup. The resulting classification model is saved in folder [__models__](/examples/classification/data/). 
 
-#### 2.c Inference
+#### 3.c Inference
 
 Script [3\_inference.py](/examples/classification/3_inference.py) takes the trained classification model and applies in real time to a newly acquired EMG data. Perform gestures in the same way you were performing them during training set acquisition (arm pose matters!). The script will output the label of the gesture in command line. 
 
-### 3. _myo-python_ Examples
+### 4. _myo-python_ Examples
 Folder [myo_python_examples](/examples/myo_python_examples/) contains the original examples distributed with __myo-python__. They may give you more insights on how to use this library. 
 
 ## What's next
 
-Script [emg\_streaming.py](/examples/streaming/emg_streaming.py) can be further modified to implement real-time signal processing, such as filtering or feature extraction. For that, one can add processing in the __while__ loop in 'emg_streaming.py' or redefine/inherit from class EmgBuffer.
+Script [emg\_streaming.py](/examples/streaming/streaming.py) can be further modified to implement real-time signal processing, such as filtering or feature extraction. For that, one can add processing in the __while__ loop in 'streaming.py' or redefine/inherit from class EmgBuffer.
 
 Classes __FeatureExtractor__ and __Classification_model__ in [EMG_classification.py](/examples/classification/EMG_classification.py) can be modified to implement a different classifier (ANN, for example). Modify class 'FeatureExtraction' to try other types of features. 
 
