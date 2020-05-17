@@ -1,10 +1,9 @@
-.DS_Store
-myo_ecn.egg-info/*
+*.DS_Store
+*.egg-info
 examples/classification/data/*
 !examples/classification/data/.gitkeep
 examples/classification/models/*
 !examples/classification/models/.gitkeep
-myo_ecn/__pycache__/*
-examples/classification/__pycache__/*
-examples/streaming/__pycache__/*
+*.pyo
+*.pyc
 
