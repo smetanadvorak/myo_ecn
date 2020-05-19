@@ -9,6 +9,7 @@ Missing requirements will be installed as you follow the instructions given belo
 - _scipy_
 - _matplotlib_
 - _keyboard_
+- _pyserial_
 
 ## Description
 
