@@ -16,7 +16,7 @@ class Buffer(myo.DeviceListener):
     def get_emg_data(self):
         with self.lock:
             return list(self.emg_data_queue)
-            
+
     # This function is called automatically by MYO API when
     # the armband is associated with the Hub object (basically, once per Hub's lifetime)
     def on_connected(self, event):
@@ -28,14 +28,14 @@ class Buffer(myo.DeviceListener):
     def on_emg(self, event):
         with self.lock:
             self.emg_data_queue.append((event.timestamp, event.emg))
-    
+
 #     def on_pose(self, event):
 #         if event.pose == myo.Pose.double_tap:
 #             print('Double tap detected, shutting down.')
 #             return False
-            
-    
-    
+
+
+
 class Collector(myo.DeviceListener):
     #Collects EMG data for a specified amount of time
     def __init__(self, len):
@@ -56,10 +56,8 @@ class Collector(myo.DeviceListener):
             if self.emg_data.shape[0] > self.acquisition_len:
                 self.emg_data = self.emg_data[:self.acquisition_len, :]
                 return False #Tells to the hub object to stop transmission.
-                
-             
-                
-            
+
+
 class ConnectionChecker:
     # Checks if connections to the MYO is available
     def __init__(self, timeout=5):
@@ -92,4 +90,3 @@ class MyoCheckConnection(myo.DeviceListener):
             return 1
         else:
             return 0
-    
